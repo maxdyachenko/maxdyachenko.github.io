@@ -1,10 +1,11 @@
 import React from 'react'
 
-const Card = ({likes , dislikes, onIncrement, onDecrement}) => {
+const Card = ({likes , dislikes, comments, onIncrement, onDecrement, onOpenPopup}) => {
     return (
-        <li>
+        <li onClick={() => onOpenPopup() }>
             <button onClick={ () => onIncrement() }>Like</button><span>{likes}</span>
             <button onClick={ () => onDecrement() }>DisLike</button><span>{dislikes}</span>
+            <p>Comments: {comments.length}</p>
         </li>
     );
 };

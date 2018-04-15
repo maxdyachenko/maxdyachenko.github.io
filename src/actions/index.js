@@ -14,3 +14,18 @@ export const addBlock = () => ({
     type: 'ADD_BLOCK',
     id: uuid()
 });
+
+export const addComment = (id, text) => ({
+    type: 'ADD_COMMENT',
+    text,
+    id
+});
+
+export const openPopup = (id) => ({
+    type: 'OPEN_POPUP',
+    id
+});
+
+export const closePopup = () => ({
+   type: 'CLOSE_POPUP'
+});

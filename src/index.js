@@ -11,7 +11,9 @@ const initialState = {
         {
             id: uuid(),
             likes: 1,
-            dislikes: 0
+            dislikes: 0,
+            comments: [],
+            popupOpen: false
         }
     ]
 };

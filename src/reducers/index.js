@@ -20,9 +20,29 @@ const blocks =  (state = [], action) => {
                 {
                     id: action.id,
                     likes: 0,
-                    dislikes: 0
+                    dislikes: 0,
+                    comments: [],
+                    popupOpen: false
                 }
             ];
+        case 'ADD_COMMENT':
+            return state.map(block =>
+                (block.id === action.id)
+                    ? {...block, comments: block.comments.concat(action.text)}
+                    : block
+            );
+        case 'OPEN_POPUP':
+            return state.map(block =>
+                (block.id === action.id)
+                    ? {...block, popupOpen: true}
+                    : block
+            );
+        case 'CLOSE_POPUP':
+            return state.map(block =>
+                (block.popupOpen)
+                    ? {...block, popupOpen: false}
+                    : block
+            );
         default:
             return state;
 
