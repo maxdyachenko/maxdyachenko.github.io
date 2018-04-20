@@ -1,12 +1,23 @@
 import React from 'react'
 
-const Card = ({likes , dislikes, comments, onIncrement, onDecrement, onOpenPopup}) => {
+import './Card.css'
+
+const Card = ({likes , dislikes, comments, image, onOpenPopup}) => {
     return (
-        <li onClick={() => onOpenPopup() }>
-            <button onClick={ () => onIncrement() }>Like</button><span>{likes}</span>
-            <button onClick={ () => onDecrement() }>DisLike</button><span>{dislikes}</span>
-            <p>Comments: {comments.length}</p>
-        </li>
+        <div className="image-block" onClick={() => onOpenPopup() }>
+            <img src={"../images/" + image} alt="Image"/>
+            <div className="image-footer">
+                <div className="dislikes-indicator">
+                    <p>{dislikes}</p>
+                </div>
+                <div className="likes-indicator">
+                    <p>{likes}</p>
+                </div>
+                <div className="comments-indicator">
+                    <p>{comments.length}</p>
+                </div>
+            </div>
+        </div>
     );
 };
 

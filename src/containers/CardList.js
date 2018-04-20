@@ -1,13 +1,11 @@
 import React from 'react'
 import Card from '../components/Card'
 import { connect } from 'react-redux'
-import { addLike } from '../actions/index'
-import { addDislike } from '../actions/index'
 import { openPopup } from '../actions/index'
 
-let CardList = ({blocks, addLikeHandler, addDisLikeHandler, openPopupHandler}) => {
+let CardList = ({blocks, openPopupHandler}) => {
     return (
-        <ul>
+        <div>
             {
                 blocks.map( block => {
                     return <Card
@@ -15,13 +13,12 @@ let CardList = ({blocks, addLikeHandler, addDisLikeHandler, openPopupHandler}) =
                         likes = {block.likes}
                         dislikes = {block.dislikes}
                         comments = {block.comments}
-                        onIncrement = {() => addLikeHandler(block.id)}
-                        onDecrement = {() => addDisLikeHandler(block.id)}
+                        image = {block.image}
                         onOpenPopup = { () => openPopupHandler(block.id)}
                     />
                 })
             }
-        </ul>
+        </div>
     );
 };
 
@@ -33,12 +30,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        addLikeHandler: (id) => {
-            dispatch(addLike(id))
-        },
-        addDisLikeHandler: (id) => {
-            dispatch(addDislike(id))
-        },
         openPopupHandler: (id) => {
             dispatch(openPopup(id))
         }

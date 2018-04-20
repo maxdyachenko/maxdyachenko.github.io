@@ -1,0 +1,10 @@
+h1  {
+    position: relative;
+    padding: 12px 0;
+    color: #8499a7;
+    font: 600 24px/1.4 OpenSansBold;
+    text-transform: uppercase;
+}
+.imagestock {
+    color: #21b8c6;
+}

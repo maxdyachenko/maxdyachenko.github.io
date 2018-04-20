@@ -15,9 +15,11 @@ export const addBlock = () => ({
     id: uuid()
 });
 
-export const addComment = (id, text) => ({
+export const addComment = (id, date, user, text) => ({
     type: 'ADD_COMMENT',
+    date,
     text,
+    user,
     id
 });
 

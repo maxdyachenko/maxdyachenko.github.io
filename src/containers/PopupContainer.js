@@ -8,11 +8,7 @@ import { addComment} from '../actions/index'
 
 const mapStateToProps = (state) => {
     return {
-        block: state.blocks.find((element, index, array) => {
-            if (element.popupOpen) {
-                return true;
-            }
-        })
+        block: state.blocks.find((element, index, array) => element.popupOpen )
     };
 };
 
@@ -27,11 +23,11 @@ const mapDispatchToProps = (dispatch) => {
         onAddDislike: (id) => {
             dispatch(addDislike(id));
         },
-        onAddComment: (id, text) => {
-            dispatch(addComment(id, text));
+        onAddComment: (id, date, user, text) => {
+            dispatch(addComment(id, date, user, text));
         }
     };
 };
 
 const PopupContainer = connect(mapStateToProps, mapDispatchToProps)(Popup);
-export default Popup;
+export default PopupContainer;

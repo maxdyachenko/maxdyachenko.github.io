@@ -12,7 +12,14 @@ const initialState = {
             id: uuid(),
             likes: 1,
             dislikes: 0,
-            comments: [],
+            image: "ImageCopy.png",
+            comments: [
+                {
+                    date: "01.01.1998",
+                    user: "test",
+                    text: "just test"
+                }
+            ],
             popupOpen: false
         }
     ]

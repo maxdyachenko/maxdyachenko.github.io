@@ -11,7 +11,7 @@ const blocks =  (state = [], action) => {
         case 'ADD_DISLIKE':
             return state.map(block =>
                 (block.id === action.id)
-                    ? {...block, dislikes: --block.dislikes}
+                    ? {...block, dislikes: ++block.dislikes}
                     : block
             );
         case 'ADD_BLOCK':
@@ -28,7 +28,7 @@ const blocks =  (state = [], action) => {
         case 'ADD_COMMENT':
             return state.map(block =>
                 (block.id === action.id)
-                    ? {...block, comments: block.comments.concat(action.text)}
+                    ? {...block, comments: block.comments.concat({date: action.date, user: action.user, text: action.text})}
                     : block
             );
         case 'OPEN_POPUP':
