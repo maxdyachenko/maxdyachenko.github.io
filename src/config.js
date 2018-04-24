@@ -62,7 +62,7 @@ const state = {
             id: uuid(),
             likes: 3,
             dislikes: 1,
-            image: "../images/Image (4).png",
+            image: "./images/Image (4).png",
             comments: [
                 {
                     date: "01.01.1998",
