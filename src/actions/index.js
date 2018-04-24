@@ -10,8 +10,9 @@ export const addDislike = (id) => ({
     id
 });
 
-export const addBlock = () => ({
+export const addBlock = (image) => ({
     type: 'ADD_BLOCK',
+    image,
     id: uuid()
 });
 

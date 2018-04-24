@@ -1,0 +1,23 @@
+.comment .info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+.comment .info p {
+    font: 400 0.8em/1.4 OpenSansRegular;
+    color: #8499a7;
+    word-wrap: break-word;
+}
+.comment .info p:first-child {
+    width: 80%;
+}
+.comment-text {
+    font:400 0.9em/1.4 OpenSansRegular;
+    border: 1px solid #f0f3f6;
+    color: #607583;
+    word-wrap: break-word;
+    padding: 10px;
+}
+.comment {
+    margin-bottom: 10px;
+}

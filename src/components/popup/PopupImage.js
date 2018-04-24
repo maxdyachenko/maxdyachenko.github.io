@@ -1,9 +1,12 @@
 import React from 'react'
 
-const PopupImage = ({id, image, likes, dislikes}) => {
+import './PopupImage.css'
+
+const PopupImage = ({block = {}, onAddDislike, onAddLike}) => {
+    const {image, id, dislikes, likes} = block;
     return (
         <div className="image-container">
-            <img src={image ? "../images/" + image : ""} alt="Image"/>
+            <img src={image ? image : ""} alt="Image"/>
             <div className="footer">
                 <div className="dislikes-indicator popup-indicator" onClick={() => onAddDislike(id) }>
                     <p>{dislikes}</p>

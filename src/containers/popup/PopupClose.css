@@ -1,0 +1,19 @@
+.close-button, .close-button:before {
+    position: absolute;
+    width: 7px;
+    height: 25px;
+    background-color: #21b8c6;
+
+}
+.close-button {
+    top: 22px;
+    right: 22px;
+    background-color: #21b8c6;
+    transform: rotate(45deg);
+    cursor: pointer;
+}
+.close-button:before {
+    content: '';
+    display: block;
+    transform: rotate(-90deg);
+}

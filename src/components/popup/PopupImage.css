@@ -1,0 +1,43 @@
+.popup-content .image-container, .popup-content .comments-container{
+    width: 50%;
+}
+.popup .image-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: aliceblue;
+}
+.popup img {
+    max-width: 100%;
+}
+.popup .footer {
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    right: 0;
+    padding: 10px 0;
+    background-color: #f2f2f2;
+}
+.popup-indicator {
+    width: 62px;
+    height: 52px;
+    margin: 0 15px;
+    background-color: #e0e5e9;
+    transition: .3s;
+}
+.popup-indicator p {
+    left: 36px;
+}
+.popup-indicator.dislikes-indicator:active,
+.popup-indicator.likes-indicator:active {
+    transform: translate(0px, -10px);
+}
+.popup-indicator.dislikes-indicator:active {
+    background-color: red;
+}
+.popup-indicator.likes-indicator:active {
+    background-color: green;
+}

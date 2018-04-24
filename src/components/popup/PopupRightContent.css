@@ -1,0 +1,13 @@
+.comments-container {
+    padding: 62px 20px 0 20px;
+}
+.comments-container h2 {
+    color: #8499a7;
+    margin-bottom: 30px;
+    font: 600 1.5em/1.4 OpenSansBold;
+}
+.comments-container .content {
+    height: 80%;
+    padding-right: 12px;
+    overflow-y: auto;
+}

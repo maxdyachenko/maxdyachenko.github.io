@@ -5,7 +5,7 @@ import './Card.css'
 const Card = ({likes , dislikes, comments, image, onOpenPopup}) => {
     return (
         <div className="image-block" onClick={() => onOpenPopup() }>
-            <img src={"../images/" + image} alt="Image"/>
+            <img src={image} alt="Image"/>
             <div className="image-footer">
                 <div className="dislikes-indicator">
                     <p>{dislikes}</p>

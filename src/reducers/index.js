@@ -19,6 +19,7 @@ const blocks =  (state = [], action) => {
                 ...state,
                 {
                     id: action.id,
+                    image: action.image,
                     likes: 0,
                     dislikes: 0,
                     comments: [],
