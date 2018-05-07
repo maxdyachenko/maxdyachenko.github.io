@@ -114,7 +114,8 @@ const state = {
             ],
             popupOpen: false
         }
-    ]
+    ],
+    loading: true
 };
 
 export default state;

@@ -1,9 +1,10 @@
 import React from 'react'
 import Card from '../../components/card/Card'
 import {connect} from 'react-redux'
-import {openPopup} from '../../actions/index'
+import {openPopup, handleLoading} from '../../actions/index'
 import AddBlock from './AddCard'
 import Isotope from 'isotope-layout'
+import imagesLoaded from 'imagesloaded'
 require('isotope-masonry-horizontal');
 
 class CardList extends React.Component {
@@ -12,22 +13,34 @@ class CardList extends React.Component {
     }
 
     componentDidMount() {
-        setTimeout(()=> {this.msnry = new Isotope(this.grid, {
-            percentPosition: true,
-            sortBy: "order",
-            layoutMode: 'masonryHorizontal',
-        }
-        );}, 300)
+        imagesLoaded(this.grid, ()=> {
+            this.msnry = new Isotope(this.grid, {
+                    percentPosition: true,
+                    sortBy: "order",
+                    layoutMode: 'masonryHorizontal',
+                }
+            );
+            this.props.onLoading(false);
+        });
     }
 
     componentDidUpdate() {
-        this.msnry.reloadItems();
-        this.msnry.layout();
-        this.msnry.arrange({ sortBy: "order" });
+        this.props.onLoading(true);
+        imagesLoaded(this.grid, ()=> {
+            this.msnry.reloadItems();
+            this.msnry.layout();
+            this.msnry.arrange({sortBy: "order"});
+            this.props.onLoading(false);
+        });
     }
 
+    shouldComponentUpdate(nextProps) {
+        return !(this.props.blocks.length === nextProps.blocks.length)
+    }
+
+
     render() {
-        const {blocks, openPopupHandler} = this.props;
+        const {blocks, openPopupHandler, loading} = this.props;
         return (
             <div
                 className={'masonry-gallery'}
@@ -53,7 +66,7 @@ class CardList extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        blocks: state.blocks
+        blocks: state.blocks,
     }
 };
 
@@ -61,6 +74,9 @@ const mapDispatchToProps = (dispatch) => {
     return {
         openPopupHandler: (id) => {
             dispatch(openPopup(id))
+        },
+        onLoading: (bool) => {
+            dispatch(handleLoading(bool))
         }
     }
 };

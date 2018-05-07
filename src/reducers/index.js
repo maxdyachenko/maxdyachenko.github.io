@@ -1,5 +1,11 @@
 import { combineReducers } from 'redux'
 
+const loading = (state = true, action) => {
+    if (action.type == 'HANDLE_LOADING')
+        return state = action.bool;
+    return state;
+};
+
 const blocks =  (state = [], action) => {
     switch (action.type) {
         case 'ADD_LIKE':
@@ -51,7 +57,8 @@ const blocks =  (state = [], action) => {
 };
 
 const reducer = combineReducers({
-    blocks
+    blocks,
+    loading
 });
 
 

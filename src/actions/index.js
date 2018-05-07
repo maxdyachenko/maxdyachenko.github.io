@@ -32,3 +32,8 @@ export const openPopup = (id) => ({
 export const closePopup = () => ({
    type: 'CLOSE_POPUP'
 });
+
+export const handleLoading = (bool) => ({
+    type: 'HANDLE_LOADING',
+    bool
+});
