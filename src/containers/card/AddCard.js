@@ -14,6 +14,7 @@ class AddCard extends React.Component {
         if (file) {
             const reader = new FileReader();
 
+            debugger
             reader.onload = (event) => {
                 this.props.dispatch(addBlock(event.target.result));
                 //event.target.result assign to image source
