@@ -63,6 +63,9 @@
     cursor: pointer;
     overflow: hidden;
 }
+.image-block img {
+    object-fit: cover;
+}
 .image-block:hover .image-footer{
     transform: translateY(0);
 }

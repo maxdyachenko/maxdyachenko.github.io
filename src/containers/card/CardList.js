@@ -8,10 +8,6 @@ import imagesLoaded from 'imagesloaded'
 require('isotope-masonry-horizontal');
 
 class CardList extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     componentDidMount() {
         imagesLoaded(this.grid, ()=> {
             this.msnry = new Isotope(this.grid, {
@@ -24,23 +20,20 @@ class CardList extends React.Component {
         });
     }
 
-    componentDidUpdate() {
-        this.props.onLoading(true);
-        imagesLoaded(this.grid, ()=> {
-            this.msnry.reloadItems();
-            this.msnry.layout();
-            this.msnry.arrange({sortBy: "order"});
-            this.props.onLoading(false);
-        });
+    componentDidUpdate(prevProps) {
+        if (prevProps.blocks.length !== this.props.blocks.length) {
+            this.props.onLoading(true);
+            imagesLoaded(this.grid, ()=> {
+                this.msnry.reloadItems();
+                this.msnry.layout();
+                this.msnry.arrange({sortBy: "order"});
+                this.props.onLoading(false);
+            });
+        }
     }
-
-    shouldComponentUpdate(nextProps) {
-        return !(this.props.blocks.length === nextProps.blocks.length)
-    }
-
 
     render() {
-        const {blocks, openPopupHandler, loading} = this.props;
+        const {blocks, openPopupHandler} = this.props;
         return (
             <div
                 className={'masonry-gallery'}
